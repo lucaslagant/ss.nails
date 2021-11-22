@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <title>SS'Nails</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>SSnails</title>
 </head>
-
 <body>
-     <!-- Début header  -->
-     <header>
-        <div class="container-flex">
-            <nav class="navbar navbar-expand-lg navbar-light bg-pink"> 
-                <!-- Menu Hamburger -->
-                <button class="navbar-toggler mx-5" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false"
-                    aria-lable="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Fin Menu Hamburger -->
-                <a href="#" class="navbar-brand mx-5"><img src="../assets/img/logo2.png" alt="logo" width="100"></a>
-                <div class="col-lg-5 d-lg-flex justify-content-lg-end collapse navbar-collapse mx-5" id="toggleMobileMenu">
-                    <ul class="navbar-nav">
-                        <li>
-                            <a class="nav-link" href="#"><span style="color:black;">Accueil</span></a>
+    <!-- Début header  -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="/assets/img/logoSSnailswhite.JPG" alt="logo"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Accueil</a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="#"><span style="color: black;">Rendez-Vous</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Rendez-vous</a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="#"><span style="color: black;">Avis</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Avis</a>
+                        </li>       
+                    </ul>
+                    <ul class="d-flex navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Connection</a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="#"><span style="color:black;">Connexion/Inscription</span></a>
-                        </li>
-
-                        <li>
-                            <a class="" href="#"><img width="88" src="../assets/img/iconFance.png" alt="Français"></a>
-                            <a class="" href="#"><img width="55" src="../assets/img/iconAnglais.png" alt="English"></a>
-                        </li>
-
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inscription</a>
+                        </li>        
+                    </ul>
                 </div>
-                </ul>
-            
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
-    <!-- Fin header -->
+    <!-- Fin header  -->
+
