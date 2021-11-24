@@ -30,7 +30,7 @@
                     </ul>
                     <ul class="d-flex navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Connection</a>
+                            <a class="nav-link" href="#">Connexion</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Inscription</a>
