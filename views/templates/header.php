@@ -33,7 +33,7 @@
                             <a class="nav-link" href="#">Connexion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Inscription</a>
+                            <a class="nav-link" href="/controllers/registerCtrl.php">Inscription</a>
                         </li>        
                     </ul>
                 </div>

@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__)."/config/bdd.php");
+require_once(dirname(__FILE__)."/../config/bdd.php");
 
 
 class Database{
