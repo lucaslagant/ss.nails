@@ -7,17 +7,17 @@ class User{
     // private $_id;
     private $_lastname;
     private $_firstname;
-    private $_mail;
+    private $_email;
     private $_password;
     private $_confirmPassword;
     private $_admin;
     private $_pdo;
 
-    public function __construct($lastname='',$firstname='',$mail='',$password='', $confirmPassword='',$admin='',$pdo='')
+    public function __construct($lastname='',$firstname='',$email='',$password='', $confirmPassword='',$admin='',$pdo='')
     {
         $this->_lastname = $lastname;
         $this->_firstname = $firstname;
-        $this->_mail = $mail;
+        $this->_mail = $email;
         $this->_password = $password;
         $this->_confirmPassword = $confirmPassword;
         $this->_admin = $admin;
@@ -62,5 +62,59 @@ class User{
             //throw $ex;
         }
 
+    }
+    public static function setValidateAccount($id){
+        $sql = 'UPDATE `user` SET `validated_at`= CURRENT_TIMESTAMP()
+                WHERE `id` = :id';
+        
+        try {
+            $pdo = Database::connect();
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_INT);
+
+            if(!$sth->execute()){
+                throw new PDOException('Problème de validation du compte');
+            } else {
+                return true;
+            }
+        } catch (\PDOException $ex) {
+            return $ex;
+        }
+    }
+
+    public static function getByEmail($email){
+        $sql = 'SELECT * FROM `user` WHERE `email` = :email;';
+
+        try {
+            $pdo = Database::connect();
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':email', $email);
+
+            if(!$sth->execute()){
+                throw new PDOException('Problème d\'execution');
+            } else {
+                return $sth->fetch();
+            }
+        } catch (\PDOException $ex) {
+            return $ex;
+        }
+    }
+
+    public static function isValidated($email){
+        $sql = 'SELECT `validated_at` FROM `user` WHERE `email` = :email;';
+
+        try {
+            $pdo = Database::connect();
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':email', $email);
+
+            if(!$sth->execute()){
+                throw new PDOException('Problème d\'execution');
+            } else {
+                return $sth->fetchColumn();
+            }
+        } catch (\PDOException $ex) {
+            return $ex;
+        }
     }
 }

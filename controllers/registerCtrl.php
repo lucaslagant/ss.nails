@@ -1,8 +1,9 @@
 <?php
 require_once dirname(__FILE__) . '/../utils/regex.php';
 require_once(dirname(__FILE__).'/../models/User.php');
-
-
+require_once(dirname(__FILE__) . '/../utils/init.php');
+require_once(dirname(__FILE__) . '/../class/Mail.php');
+require_once(dirname(__FILE__) . '/../utils/Database.php');
 
 
     $errors = [];
@@ -25,9 +26,9 @@ require_once(dirname(__FILE__).'/../models/User.php');
        }else {
            $errors['firstname'] = 'Veuillez saisir votre prénom';
        }
-       $mail = trim(filter_input(INPUT_POST , 'mail' , FILTER_SANITIZE_EMAIL));
-       if (!preg_match(REGEX_EMAIL,$mail)) {
-           $error['mail'] = 'mail invalide';
+       $email = trim(filter_input(INPUT_POST , 'email' , FILTER_SANITIZE_EMAIL));
+       if (!preg_match(REGEX_EMAIL,$email)) {
+           $error['email'] = 'mail invalide';
        }
        $password = $_POST['password'];
        $confirmPassword = $_POST['confirmPassword'];
@@ -38,12 +39,26 @@ require_once(dirname(__FILE__).'/../models/User.php');
        }
        if (empty($error)) {
            $pdo = Database::connect();
-           $user = new User($lastname,$firstname,$mail,$password);
+           $user = new User($lastname,$firstname,$email,$password);
            $response = $user->set();
            $id = $pdo->lastnaInsertId();
            $token = $user->getValidatedToken();
 
-           
+           if ($response === true) {
+               
+            $to = $email;
+            $from = SENDER_EMAIL;
+            $subject = 'Validation de votre inscription';
+            $fromName = FROM_NAME;
+            $toName = $lastname;
+
+            $link = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/controllers/validAccountCtrl.php?id='.$id.'&token'.$token;
+            $message = "Bonjour $lastname ! Veuillez confirmer votre inscription <br> <button><a href=\"$link\">Clique ici</a></button>";
+
+            $mail = new Mail($message,$to,$from,$subject,$fromName,$toName);
+            $mail->send();
+
+           }
 
 
        }

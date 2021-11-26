@@ -10,8 +10,11 @@
                 type="text"
                 name="lastname"
                 id="lastname"
-                value=""
+                value="<?=$lastname?>"
+                pattern=""
+                required
                 >
+                <div class="invalid-feedback-2"><?=$error['lastname'] ?? ''?></div>
             </p>
             <label class="formulaire" for="firstname">Prénom : </label>
             <p>
@@ -19,8 +22,11 @@
                 type="text"
                 name="firstname"
                 id="firstname"
-                value=""
+                value="<?=$firstname?>"
+                pattern="<?=REGEX_NO_NUMBER?>"
+                required
                 >
+                <div class="invalid-feedback-2"><?=$error['firstname'] ?? ''?></div>           
             </p>   
             <label class="formulaire" for="Email">Email : </label>
             <p>
@@ -28,8 +34,12 @@
                 type="text"
                 name="email"
                 id="email"
-                value=""
+                value="<?=$email?>"
+                pattern="<?=REGEX_EMAIL?>"
+                required
                 >
+                <div class="invalid-feedback-2"><?=$error['email'] ?? ''?></div>         
+
             </p>
             <label class="formulaire" for="password">Password : </label>
             <p>
@@ -38,6 +48,7 @@
                 name="password"
                 id="password"
                 value=""
+                required
                 >
             </p>
             <label class="formulaire" for="confirmPassword">Confirm Password : </label>
@@ -47,6 +58,7 @@
                 name="confirmPassword"
                 id="confirmPassword"
                 value=""
+                required
                 >
             </p> 
             <input type="submit" value="Validé">   
@@ -54,4 +66,4 @@
     </div>
 </div>
 
-
+<script src="/assets/js/checkRegister.js"></script>
