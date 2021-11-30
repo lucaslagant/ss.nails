@@ -1,9 +1,9 @@
 const checkPassword = (event) => {
     event.preventDefault();
     let password = document.getElementById('password');
-    let passwordConfirm = document.getElementById('passwordConfirm');
+    let confirmPassword = document.getElementById('confirmPassword');
 
-    if(passwordConfirm.value != password.value){
+    if(confirmPassword.value != password.value){
         document.getElementById('errorPassword').innerHTML = 'Les mots de passe ne correspondent pas';
     } else {
         formRegister.submit();

@@ -11,7 +11,7 @@
                 name="lastname"
                 id="lastname"
                 value="<?=$lastname?>"
-                pattern=""
+                pattern="[A-Za-z-éèêëàâäôöûüç' ]+$"
                 required
                 >
                 <div class="invalid-feedback-2"><?=$error['lastname'] ?? ''?></div>
@@ -23,7 +23,7 @@
                 name="firstname"
                 id="firstname"
                 value="<?=$firstname?>"
-                pattern="<?=REGEX_NO_NUMBER?>"
+                pattern="[A-Za-z-éèêëàâäôöûüç' ]+$"
                 required
                 >
                 <div class="invalid-feedback-2"><?=$error['firstname'] ?? ''?></div>           
@@ -62,8 +62,7 @@
                 >
             </p> 
             <input type="submit" value="Validé">   
-        </form>
+        </form>        
     </div>
 </div>
 
-<script src="/assets/js/checkRegister.js"></script>

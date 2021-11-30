@@ -9,12 +9,14 @@ require_once(dirname(__FILE__) . '/../utils/Database.php');
     $errors = [];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST))
-    {             
+    {      
+        
+     
        $lastname = trim(filter_input(INPUT_POST , 'lastname' ,FILTER_SANITIZE_STRING));
        if ($lastname) {
            if (!preg_match(REGEX_NO_NUMBER , $lastname)) {
                $errors['lastnameError'] = 'Nom invalide';
-           }
+           }           
        } else {
            $errors['lastnameError'] = 'Veuillez saisir votre nom';
        }
@@ -22,17 +24,17 @@ require_once(dirname(__FILE__) . '/../utils/Database.php');
        if ($firstname) {
            if (!preg_match(REGEX_NO_NUMBER , $firstname)) {
                $errors['firstnameError'] = 'Prénom invalide';
-           }
+           }          
        }else {
            $errors['firstname'] = 'Veuillez saisir votre prénom';
        }
        $email = trim(filter_input(INPUT_POST , 'email' , FILTER_SANITIZE_EMAIL));
        if (!preg_match(REGEX_EMAIL,$email)) {
            $error['email'] = 'mail invalide';
-       }
-       $password = $_POST['password'];
-       $confirmPassword = $_POST['confirmPassword'];
-       if ($password == $confirmPassword) {
+       }       
+       $password = $_POST['password'];       
+       $confirmPassword = $_POST['confirmPassword'];       
+       if ($password !== $confirmPassword) {
            $password = password_hash($password,PASSWORD_DEFAULT);
        }else {
            $error['password_error'] = 'Les mots de passe ne correspondent pas';           
@@ -53,12 +55,15 @@ require_once(dirname(__FILE__) . '/../utils/Database.php');
             $toName = $lastname;
 
             $link = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/controllers/validAccountCtrl.php?id='.$id.'&token'.$token;
-            $message = "Bonjour $lastname ! Veuillez confirmer votre inscription <br> <button><a href=\"$link\">Clique ici</a></button>";
+            $message = "Bonjour $lastname $firstname ! Veuillez confirmer votre inscription <br> <button><a href=\"$link\">Clique ici</a></button>";
 
             $mail = new Mail($message,$to,$from,$subject,$fromName,$toName);
             $mail->send();
 
-           }
+        }
+        var_dump($_SERVER);
+        die;
+
 
 
        }

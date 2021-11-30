@@ -10,8 +10,7 @@ include dirname(__FILE__)."/views/templates/header.php";
         <div class="col-3">
             <img  class="imgNoel"src="/assets/img/ongle5rogner1.jpg" alt="ongleNoel">
         </div>
-    </div>
-    
+    </div>    
    
     
 </div>
