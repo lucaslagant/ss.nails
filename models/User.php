@@ -12,6 +12,7 @@ class User{
     private $_confirmPassword;
     private $_admin;
     private $_pdo;
+    private $_validated_token;
 
     public function __construct($lastname='',$firstname='',$email='',$password='', $confirmPassword='',$admin='',$pdo='')
     {
@@ -22,18 +23,23 @@ class User{
         $this->_confirmPassword = $confirmPassword;
         $this->_admin = $admin;
         $this->_pdo = Database::connect();
+        $this->_validated_token = bin2hex(openssl_random_pseudo_bytes(60));
+
     }
 
     public function set(){
         
-        $sql = 'INSERT INTO `user` (`lastname`,`firstname`, `email`, `password`, `validated_token`)
-        VALUES (:lastname, :firstname, :email, :password, :validated_token);';
+        $sql = 'INSERT INTO `user` (`lastname_user`,`firstname_user`, `mail`, `password`, `validated_token`)
+        VALUES (:lastname_user, :firstname_user, :mail, :password, :validated_token);';
     
         try {
             $sth = $this->_pdo->prepare($sql);
-            $sth->bindValue(':lastname', $this->_lastname);
-            $sth->bindValue(':email', $this->_email);
+            $sth->bindValue(':lastname_user', $this->_lastname);
+            $sth->bindValue(':firstname_user', $this->_firstname);
+            $sth->bindValue(':mail', $this->_mail);
             $sth->bindValue(':password', $this->_password);
+            $sth->bindValue(':validated_token', $this->_validated_token);
+
             if(!$sth->execute()){
                 throw new PDOException('Problème lors de l\'inscription');
             }

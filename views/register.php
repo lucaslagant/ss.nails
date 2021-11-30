@@ -4,41 +4,41 @@
     </div>
     <div class=" col-6 text-center">
         <form action="" method="post">
-            <label class="formulaire" for="lastname">Nom : </label>
+            <label class="formulaire" for="lastname_user">Nom : </label>
             <p>
                 <input
                 type="text"
-                name="lastname"
-                id="lastname"
-                value="<?=$lastname?>"
+                name="lastname_user"
+                id="lastname_user"
+                value=""
                 pattern="[A-Za-z-éèêëàâäôöûüç' ]+$"
                 required
                 >
-                <div class="invalid-feedback-2"><?=$error['lastname'] ?? ''?></div>
+                <div class="invalid-feedback-2"><?=$error['lastname_user'] ?? ''?></div>
             </p>
-            <label class="formulaire" for="firstname">Prénom : </label>
+            <label class="formulaire" for="firstname_user">Prénom : </label>
             <p>
                 <input
                 type="text"
-                name="firstname"
-                id="firstname"
-                value="<?=$firstname?>"
+                name="firstname_user"
+                id="firstname_user"
+                value=""
                 pattern="[A-Za-z-éèêëàâäôöûüç' ]+$"
                 required
                 >
-                <div class="invalid-feedback-2"><?=$error['firstname'] ?? ''?></div>           
+                <div class="invalid-feedback-2"><?=$error['firstname_user'] ?? ''?></div>           
             </p>   
-            <label class="formulaire" for="Email">Email : </label>
+            <label class="formulaire" for="mail">Email : </label>
             <p>
                 <input
                 type="text"
-                name="email"
-                id="email"
-                value="<?=$email?>"
-                pattern="<?=REGEX_EMAIL?>"
+                name="mail"
+                id="mail"
+                value=""
+                pattern="^[[:alnum:]]([-_.]?[[:alnum:]])*@[[:alnum:]]([-.]?[[:alnum:]])*\.([a-z]{2,4})$"
                 required
                 >
-                <div class="invalid-feedback-2"><?=$error['email'] ?? ''?></div>         
+                <div class="invalid-feedback-2"><?=$error['mail'] ?? ''?></div>         
 
             </p>
             <label class="formulaire" for="password">Password : </label>

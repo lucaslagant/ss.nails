@@ -12,67 +12,56 @@ require_once(dirname(__FILE__) . '/../utils/Database.php');
     {      
         
      
-       $lastname = trim(filter_input(INPUT_POST , 'lastname' ,FILTER_SANITIZE_STRING));
-       if ($lastname) {
-           if (!preg_match(REGEX_NO_NUMBER , $lastname)) {
-               $errors['lastnameError'] = 'Nom invalide';
+       $lastname_user = trim(filter_input(INPUT_POST , 'lastname_user' ,FILTER_SANITIZE_STRING));
+       if ($lastname_user) {
+           if (!preg_match(REGEX_NO_NUMBER , $lastname_user)) {
+               $errors['lastname_user'] = 'Nom invalide';
            }           
-       } else {
-           $errors['lastnameError'] = 'Veuillez saisir votre nom';
-       }
-       $firstname = trim(filter_input(INPUT_POST,'firstname' , FILTER_SANITIZE_STRING));
-       if ($firstname) {
-           if (!preg_match(REGEX_NO_NUMBER , $firstname)) {
-               $errors['firstnameError'] = 'Prénom invalide';
+       }       
+       $firstname_user = trim(filter_input(INPUT_POST,'firstname_user' , FILTER_SANITIZE_STRING));
+       if ($firstname_user) {
+           if (!preg_match(REGEX_NO_NUMBER , $firstname_user)) {
+               $errors['firstname_user'] = 'Prénom invalide';
            }          
-       }else {
-           $errors['firstname'] = 'Veuillez saisir votre prénom';
-       }
-       $email = trim(filter_input(INPUT_POST , 'email' , FILTER_SANITIZE_EMAIL));
-       if (!preg_match(REGEX_EMAIL,$email)) {
-           $error['email'] = 'mail invalide';
+       }       
+       $mail = trim(filter_input(INPUT_POST , 'mail' , FILTER_SANITIZE_EMAIL));
+       if (!preg_match(REGEX_EMAIL,$mail)) {
+           $error['mail'] = 'mail invalide';
        }       
        $password = $_POST['password'];       
        $confirmPassword = $_POST['confirmPassword'];       
-       if ($password !== $confirmPassword) {
+       if ($password == $confirmPassword) {
            $password = password_hash($password,PASSWORD_DEFAULT);
        }else {
-           $error['password_error'] = 'Les mots de passe ne correspondent pas';           
-       }
-       if (empty($error)) {
-           $pdo = Database::connect();
-           $user = new User($lastname,$firstname,$email,$password);
-           $response = $user->set();
-           $id = $pdo->lastnaInsertId();
+           $error['password'] = 'Les mots de passe ne correspondent pas';           
+       }       
+       if (empty($error)) {        
+           $pdo = Database::connect();           
+           $user = new User($lastname_user,$firstname_user,$mail,$password);
+           $response = $user->set();           
+           $id = $pdo->lastInsertId();
            $token = $user->getValidatedToken();
 
            if ($response === true) {
                
-            $to = $email;
+            $to = $mail;
             $from = SENDER_EMAIL;
             $subject = 'Validation de votre inscription';
             $fromName = FROM_NAME;
-            $toName = $lastname;
+            $toName = $lastname_user;
 
             $link = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/controllers/validAccountCtrl.php?id='.$id.'&token'.$token;
-            $message = "Bonjour $lastname $firstname ! Veuillez confirmer votre inscription <br> <button><a href=\"$link\">Clique ici</a></button>";
+            $message = "Bonjour $lastname_user $firstname_user ! Veuillez confirmer votre inscription <br> <button><a href=\"$link\">Clique ici</a></button>";
 
             $mail = new Mail($message,$to,$from,$subject,$fromName,$toName);
             $mail->send();
 
         }
-        var_dump($_SERVER);
-        die;
-
+        
 
 
        }
     }
-
-
-
-
-
 
 // appel des fichiers
 include dirname(__FILE__)."/../views/templates/header.php";
