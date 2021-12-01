@@ -46,7 +46,7 @@ require_once(dirname(__FILE__) . '/../utils/Database.php');
                
             $to = $mail;
             $from = SENDER_EMAIL;
-            $subject = 'Validation de votre inscription';
+            $subject = 'Validation de votre inscription'; 
             $fromName = FROM_NAME;
             $toName = $lastname_user;
 

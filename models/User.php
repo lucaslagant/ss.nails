@@ -69,6 +69,23 @@ class User{
         }
 
     }
+    public static function deleteToken($id){
+        $sql = 'UPDATE `user` SET `validated_token`= null
+                WHERE `id` = :id';
+        try {
+            $pdo = Database::connect();
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_INT);
+            if(!$sth->execute()){
+                throw new PDOException('Erreur d\'exécution');
+            } else {
+                return $sth->rowCount();
+            }
+        } catch (\PDOException $ex) {
+            //throw $ex;
+        }
+
+    }
     public static function setValidateAccount($id){
         $sql = 'UPDATE `user` SET `validated_at`= CURRENT_TIMESTAMP()
                 WHERE `id` = :id';
