@@ -50,7 +50,7 @@ require_once(dirname(__FILE__) . '/../utils/Database.php');
             $fromName = FROM_NAME;
             $toName = $lastname_user;
 
-            $link = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/controllers/validAccountCtrl.php?id='.$id.'&token'.$token;
+            $link = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/controllers/validAccountCtrl.php?id='.$id.'&token='.$token;            
             $message = "Bonjour $lastname_user $firstname_user ! Veuillez confirmer votre inscription <br> <button><a href=\"$link\">Clique ici</a></button>";
 
             $mail = new Mail($message,$to,$from,$subject,$fromName,$toName);

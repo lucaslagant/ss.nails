@@ -13,8 +13,9 @@ class User{
     private $_admin;
     private $_pdo;
     private $_validated_token;
+    private $_validated_at;
 
-    public function __construct($lastname='',$firstname='',$email='',$password='', $confirmPassword='',$admin='',$pdo='')
+    public function __construct($lastname= null,$firstname= null,$email=null,$password=null, $confirmPassword=null,$admin=null,$pdo=null,$validated_at=null)
     {
         $this->_lastname = $lastname;
         $this->_firstname = $firstname;
@@ -24,6 +25,7 @@ class User{
         $this->_admin = $admin;
         $this->_pdo = Database::connect();
         $this->_validated_token = bin2hex(openssl_random_pseudo_bytes(60));
+        $this->_validated_at = $validated_at;
 
     }
 
@@ -105,13 +107,13 @@ class User{
         }
     }
 
-    public static function getByEmail($email){
-        $sql = 'SELECT * FROM `user` WHERE `email` = :email;';
+    public static function getByEmail($mail){
+        $sql = 'SELECT * FROM `user` WHERE `mail` = :mail;';
 
         try {
             $pdo = Database::connect();
             $sth = $pdo->prepare($sql);
-            $sth->bindValue(':email', $email);
+            $sth->bindValue(':mail', $mail);
 
             if(!$sth->execute()){
                 throw new PDOException('Problème d\'execution');
@@ -123,13 +125,13 @@ class User{
         }
     }
 
-    public static function isValidated($email){
-        $sql = 'SELECT `validated_at` FROM `user` WHERE `email` = :email;';
+    public static function isValidated($mail){
+        $sql = 'SELECT `validated_at` FROM `user` WHERE `mail` = :mail;';
 
         try {
             $pdo = Database::connect();
             $sth = $pdo->prepare($sql);
-            $sth->bindValue(':email', $email);
+            $sth->bindValue(':mail', $mail);
 
             if(!$sth->execute()){
                 throw new PDOException('Problème d\'execution');

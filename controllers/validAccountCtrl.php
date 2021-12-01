@@ -10,8 +10,9 @@ $get_token = trim(filter_input(INPUT_GET, 'token', FILTER_SANITIZE_STRING));
 $user = User::get($id);
 $validated_token = $user->validated_token;
 
-if($get_token == $validated_token){
-    $response = User::setValidateAccount($id);
+
+if($get_token == $validated_token){    
+    $response = User::setValidateAccount($id);    
     if($response === true){
         $nbRows = User::deleteToken($id);
         if($nbRows==0){
