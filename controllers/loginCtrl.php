@@ -5,10 +5,9 @@ require_once(dirname(__FILE__) . '/../models/User.php');
 
 $errorsArray = array();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
+if($_SERVER['REQUEST_METHOD'] == 'POST'){   
     $mail = trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL));
-    $isOk = filter_var($mail, FILTER_VALIDATE_EMAIL);
+    $isOk = filter_var($mail, FILTER_VALIDATE_EMAIL);    
 
     if(!empty($mail)){
         if(!$isOk){
@@ -20,16 +19,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
     $password = $_POST['password'];
+    
 
-    $isValidatedUser = User::isValidated($mail);
+    $isValidatedUser = User::isValidated($mail);    
 
     if(!is_null($isValidatedUser)){
         $user = User::getByEmail($mail);
-        $hash = $user->password;
+        $hash = $user->password;        
         
-        $isVerified = password_verify($password, $hash);
+        $isVerified = password_verify($password, $hash);        
         if($isVerified === true){
             $_SESSION['user'] = $user; 
+            
         } else {
             $errorsArray['global'] = 'Votre mot de passe n\'est pas bon!';
         }

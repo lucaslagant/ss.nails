@@ -5,6 +5,13 @@
 .navbar-light .navbar-nav .nav-link {
     color: #97916e;
 }
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #97916e;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
 /* CSS Footer  */
 .footerPosition{
     background-color: #fff;

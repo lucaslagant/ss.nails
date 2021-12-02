@@ -27,15 +27,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Avis</a>
                         </li>       
-                    </ul>
-                    <ul class="d-flex navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/controllers/loginCtrl.php">Connexion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/controllers/registerCtrl.php">Inscription</a>
-                        </li>        
-                    </ul>
+                    </ul>                   
+                    <div class="d-flex">
+                        <?php
+                            if(!isset($_SESSION['user'])){
+                        ?>
+                        <a class="nav-link" href="/controllers/registerCtrl.php">Inscription</a>
+                        <a class="nav-link" href="/controllers/loginCtrl.php">Connexion</a>
+                        <?php } else { ?>
+                            <a class="nav-link" href="/controllers/disconnectCtrl.php">Déconnexion</a>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
         </nav>
