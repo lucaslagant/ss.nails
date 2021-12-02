@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(!empty($mail)){
         if(!$isOk){
-            $errorsArray['email_error'] = 'Le mail n\'est pas valide';
+            $errorsArray['mail_error'] = 'Le mail n\'est pas valide';
         }
     }else{
         $errorsArray['mail_error'] = 'Le champ est obligatoire';

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
-            <h1 class="text-center my-5">Formulaire de connexion</h1>
+            <h1 class="text-center my-5">Connexion</h1>
 
             <?= $errorsArray['global'] ?? '' ?>
             
@@ -21,7 +21,7 @@
 
                 <div class="mb-4">
                     <div class="form-outline">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Mot de Passe</label>
                         <input type="password" value="" class="form-control" id="password" name="password" required />
                     </div>
                 </div>
