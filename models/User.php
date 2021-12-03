@@ -142,4 +142,17 @@ class User{
             return $ex;
         }
     }
+    public static function list(){    
+       
+        $pdo= Database::connect();
+
+        try{
+            $sql = 'SELECT `lastname_user`, `firstname_user`, `mail` FROM `user` ;';
+            $sth = $pdo->query($sql);
+            $user = $sth->fetchAll();
+            return $user;
+        }catch(PDOException $ex){
+            die('La requête a retourné une erreur: '. $ex->getMessage());
+        }
+    }
 }

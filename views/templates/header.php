@@ -26,6 +26,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Avis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/controllers/profilCtrl.php">Profil</a>
                         </li>       
                     </ul>                   
                     <div class="d-flex">

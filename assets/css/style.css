@@ -60,3 +60,27 @@ h1{
 .imgInscription{
     margin-left: 150px;
 }
+/* CCS Profil */
+.tableau-style{
+    border-collapse: collapse;
+    min-width: 300px;
+    width: auto;
+    cursor: pointer;
+    margin: 50px auto;
+    border: 2px solid #97916e;
+}
+thead tr {
+    background-color: #97916e;
+    color: #000;
+    text-align: left;
+}
+th,td{
+    padding: 15px 20px;    
+}
+tbody tr, td, th{
+    border: 1px solid grey;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+}
