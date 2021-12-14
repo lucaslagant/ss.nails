@@ -1,2 +1,2 @@
 <?php
-header('location: /controllers/HomeCtrl.php');
+header('location: /controllers/homeCtrl.php');
