@@ -7,14 +7,14 @@
 }
 .nav-link {
     display: block;
-    padding: 0.5rem 1rem;
+    /* padding: 0.5rem 1rem; */
     color: #97916e;
     text-decoration: none;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 /* CSS Footer  */
 .footerPosition{
-    background-color: #fff;
+    background-color: #97916e;
         height: 18vh;
         width: 100%;
     
@@ -23,21 +23,21 @@
         align-items: center;   
         
     
-        color: #97916e;
+        color: #fff;
 }
 .footerPosition a {
-    color: #97916e;
+    color: #fff;
     text-decoration: none;
 }
 .footerPosition a:hover {
-    background-color: #fff;
+    background-color: #97916e;
     text-decoration: underline 1px;
 }
 .fontsizeA{
     font-size: 16px;
 }
 /* CSS index */
-h1{
+/* h1{
     color: #97916e;
     margin-left: 100px;   
 }
@@ -52,6 +52,19 @@ h1{
 }
 .imgNoel{
     margin-left: 65px;
+} */
+.about{
+    background-color: #97916e;
+    color: #fff;    
+}
+h1{
+    display:flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+.text{
+    font-size: 18px;
+    padding: 20px 50px 20px 50px;  
 }
 /* CSS inscription */
 .formulaire{
