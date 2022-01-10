@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../utils/Database.php');
 
 class User{
 
-    // private $_id;
+    // private $_id;x
     private $_lastname;
     private $_firstname;
     private $_email;
@@ -153,6 +153,19 @@ class User{
             return $user;
         }catch(PDOException $ex){
             die('La requête a retourné une erreur: '. $ex->getMessage());
+        }
+    }
+    public static function modify($id){
+        
+        $sql = 'UPDATE `user` SET `lastname_user`= :lastname_user, `firstname_user`= :firstname_user, `mail`= :mail WHERE `id`= :id ;';
+        try {
+            $pdo = Database::connect();
+            $sth = $pdo->prepare($sql);
+
+            $sth->bindValue(':id', $id, PDO::PARAM_INT);            
+        }
+        catch (\PDOException $ex) {
+            return $ex->getMessage();
         }
     }
 }

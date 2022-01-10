@@ -1,4 +1,4 @@
-<footer class="fixed-bottom" id="footerColor">
+<footer  id="footerColor">
     <div class="footerPosition">
 
         <ul style="list-style-type:none;" class="d-none d-lg-block fontsizeA fontsizeA text-center mt-3">
@@ -18,12 +18,15 @@
         <h6 class="fontsizeA text-center mt-3">Copyright 2021,<a href="#acceuil">SS Nails</a></h6>
 
         <ul class="d-none d-lg-block fontsizeA text-center mt-3">
-            <a href="https://fr-fr.facebook.com/" target="blank">
-                <li>Rejoignez nous sur Facebook</li>
+            <a href="https://www.facebook.com/SS-NAILS-100449825817721/" target="blank">
+                <img src="/assets/img/iconFacebook.png" alt="iconFacebook">
             </a>
-            <!-- <a href="tel:+33658874253" target="blank">
+            <a href="https://www.instagram.com/ss.nails_80/?hl=fr" target="blank">
+                <img src="/assets/img/iconInsta.png" alt="iconInsta">
+            </a>
+             <a href="tel:+33658874253" target="blank">
                 <li>06.58.87.42.53</li>
-            </a> -->
+            </a>
             <a href="mailto:ss.nails@outlook.fr" target="blank">
                 <li>ss.nails@outlook.fr</li>
             </a>

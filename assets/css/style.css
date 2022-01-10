@@ -15,7 +15,7 @@
 /* CSS Footer  */
 .footerPosition{
     background-color: #97916e;
-        height: 18vh;
+        height:auto;
         width: 100%;
     
         display: flex;
@@ -36,26 +36,10 @@
 .fontsizeA{
     font-size: 16px;
 }
-/* CSS index */
-/* h1{
-    color: #97916e;
-    margin-left: 100px;   
-}
-.text{
-    color: #97916e;
-    margin-top: 20px;
-    margin-left: 30px;
-}
-.title{
-    display: flex;
-    justify-content: center;
-}
-.imgNoel{
-    margin-left: 65px;
-} */
+/* CSS homePage */
 .about{
-    background-color: #97916e;
-    color: #fff;    
+    background-color: #fff;
+    color: #97916e;
 }
 h1{
     display:flex;
@@ -64,8 +48,38 @@ h1{
 }
 .text{
     font-size: 18px;
-    padding: 20px 50px 20px 50px;  
+    padding: 20px 300px 20px 300px;  
 }
+.imgHomePage{
+    height:100%;
+    width: 100%;
+}
+.imgFlakeNails{
+    width: 82%;
+    padding-left: 12%;
+    padding-top: 5%;
+    border-radius: 3%;
+}
+.imgRainbowNails{
+    width: 70%;
+    padding-left: 12%;
+    padding-top: 5%;
+    border-radius: 3%;
+}
+.imgOrangeNails{
+    width: 70%;
+    padding-left: 12%;
+    padding-top: 5%;
+    border-radius: 3%;
+}
+.callToAction{
+    margin-left: 50%;
+    margin-bottom: 5%;   
+    background-color: #97916e;
+    color: #fff;
+    border-radius: 5%;
+}
+
 /* CSS inscription */
 .formulaire{
     color: #97916e;
@@ -79,7 +93,7 @@ h1{
     min-width: 300px;
     width: auto;
     cursor: pointer;
-    margin: 50px auto;
+    margin: 13% auto;
     border: 2px solid #97916e;
 }
 thead tr {
