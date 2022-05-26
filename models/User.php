@@ -67,7 +67,7 @@ class User{
             }
             return $sth->fetch();
         } catch (\PDOException $ex) {
-            //throw $ex;
+            throw $ex;
         }
 
     }

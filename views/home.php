@@ -2,7 +2,7 @@
     <div class="row">
         <div class="about">
             <h1>A Propos</h1>
-            <p class="text">SSnails est une onglerie ouverte aux cour de l'année 2022 . Nous avons à coeur de rendre vos ongles tendances avec un style unique et personalisé toutes en vous proposant les soins qui l'accompagne , en effet pour nous la santé de vos ongles compte aussi.</p>
+            <p class="text">SSnails est une onglerie ouverte au cours de l'année 2022 . Nous avons à coeur de rendre vos ongles tendances avec un style unique et personalisé toutes en vous proposant les soins qui l'accompagne , en effet pour nous la santé de vos ongles compte aussi.</p>
         </div>        
     </div>
     <div class="row">
